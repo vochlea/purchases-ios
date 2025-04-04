@@ -145,11 +145,7 @@ platform :ios do
     gym(
       workspace: "Tests/TestingApps/PaywallsTester/PaywallsTester.xcworkspace",
       scheme: "PaywallsTester - SK config",
-      destination: "platform=iOS Simulator",
-      derived_data_path: "scan_derived_data",
-      clean: true,
-      export_method: "development",
-      skip_package_ipa: true
+      build_for_testing: true
     )
   end
 
