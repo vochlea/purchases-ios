@@ -1380,6 +1380,9 @@ jobs:
       - checkout
       - install-dependencies
       - run:
+          name: Build PaywallsTester
+          command: bundle exec fastlane build_paywalls_tester_for_maestro
+      - run:
           name: Install Maestro CLI
           command: |
             curl -Ls "https://get.maestro.mobile.dev" | bash
