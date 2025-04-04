@@ -1,0 +1,11 @@
+appId: com.revenuecat.PaywallsTester
+---
+- launchApp
+- scrollUntilVisible:
+    speed: 100
+    direction: DOWN
+    element:
+      id: "customer-center-sheet"
+- tapOn:
+    id: "customer-center-sheet"
+

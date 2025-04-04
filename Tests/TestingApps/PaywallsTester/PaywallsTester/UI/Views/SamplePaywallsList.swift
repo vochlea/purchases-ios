@@ -193,6 +193,7 @@ struct SamplePaywallsList: View {
                 } label: {
                     TemplateLabel(name: "Sheet", icon: "person.fill")
                 }
+                .accessibilityIdentifier("customer-center-sheet")
             }
             #endif
 
