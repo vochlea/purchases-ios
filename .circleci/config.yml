@@ -9,7 +9,7 @@ version: 2.1
 parameters:
   action:
     type: enum
-    enum: [default, bump, run-manual-tests, run-manual-docs-deploy]
+    enum: [default, bump, run-manual-tests, run-manual-docs-deploy, run-maestro]
     default: default
   generate_snapshots:
     default: false
@@ -1524,7 +1524,7 @@ workflows:
 
   manual-trigger-maestro:
     when:
-      equal: [maestro, << pipeline.parameters.action >>]
+      equal: [run-maestro, << pipeline.parameters.action >>]
     jobs:
       - maestro:
           context:
