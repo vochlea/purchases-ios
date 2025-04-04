@@ -140,6 +140,21 @@ platform :ios do
     emerge(repo_name: "RevenueCat/purchases-ios")
   end
 
+  desc "Build Paywall Tester for Maestro"
+  lane :build_paywalls_tester_for_maestro do |options|
+    gym(
+      workspace: "Tests/TestingApps/PaywallsTester/PaywallsTester.xcworkspace",
+      scheme: "PaywallsTester - SK config",
+      destination: "platform=iOS Simulator,name=iPhone 16,OS=18.4",
+      derived_data_path: "fastlane/derived_data",
+      output_directory: "fastlane/test_output",
+      buildlog_path: "fastlane/test_output/build_logs",
+      clean: true,
+      export_method: "development",
+      skip_package_ipa: true
+    )
+  end
+
   desc "Runs all the iOS tests"
   lane :test_ios do |options|
     generate_snapshots = ENV["CIRCLECI_TESTS_GENERATE_SNAPSHOTS"] == "true"
