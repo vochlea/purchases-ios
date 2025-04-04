@@ -147,8 +147,7 @@ platform :ios do
     workspace: "Tests/TestingApps/PaywallsTester/PaywallsTester.xcworkspace",
     scheme: "PaywallsTester - SK config",
     build_for_testing: true,
-    configuration: "Debug",
-    destination: "platform=iOS Simulator,name=iPhone 14" # or omit to let Fastlane pick
+    configuration: "Debug"
   )
 
   # Get the built .app path
