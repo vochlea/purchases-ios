@@ -145,7 +145,7 @@ platform :ios do
     gym(
       workspace: "Tests/TestingApps/PaywallsTester/PaywallsTester.xcworkspace",
       scheme: "PaywallsTester - SK config",
-      destination: "platform=iOS Simulator,name=iPhone 14,OS=18.1",
+      destination: "platform=iOS Simulator",
       derived_data_path: "scan_derived_data",
       clean: true,
       export_method: "development",
