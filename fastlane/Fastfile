@@ -154,10 +154,9 @@ platform :ios do
   app_path = Dir["./derivedData/Build/Products/**/PaywallsTester.app"].first
 
   # Boot a simulator (or use your existing booted one)
-  device_id = sh("xcrun simctl list devices available | grep -m1 'iPhone 14' | awk -F '[()]' '{print $2}'").strip
-
-  sh("xcrun simctl boot #{device_id}") unless device_id.empty?
+  device_id = sh("xcrun simctl list devices available | grep -m1 -E 'iPhone|iPad' | awk -F '[()]' '{print $2}'").strip
   sh("xcrun simctl install #{device_id} '#{app_path}'")
+  
   end
 
   desc "Runs all the iOS tests"
