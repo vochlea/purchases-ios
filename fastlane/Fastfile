@@ -145,10 +145,8 @@ platform :ios do
     gym(
       workspace: "Tests/TestingApps/PaywallsTester/PaywallsTester.xcworkspace",
       scheme: "PaywallsTester - SK config",
-      destination: "platform=iOS Simulator,name=iPhone 16,OS=18.4",
-      derived_data_path: "fastlane/derived_data",
-      output_directory: "fastlane/test_output",
-      buildlog_path: "fastlane/test_output/build_logs",
+      destination: "platform=iOS Simulator,name=iPhone 14,OS=18.1",
+      derived_data_path: "scan_derived_data",
       clean: true,
       export_method: "development",
       skip_package_ipa: true

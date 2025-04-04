@@ -82,6 +82,14 @@ Setup development environment
 
 Build the Paywalls Test app for Emerge Snapshots
 
+### ios build_paywalls_tester_for_maestro
+
+```sh
+[bundle exec] fastlane ios build_paywalls_tester_for_maestro
+```
+
+Build Paywall Tester for Maestro
+
 ### ios test_ios
 
 ```sh
