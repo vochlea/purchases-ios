@@ -27,14 +27,26 @@ struct ManageSubscriptionsButtonsView: View {
     var viewModel: ManageSubscriptionsViewModel
 
     var body: some View {
-        ForEach(self.viewModel.relevantPathsForPurchase, id: \.id) { path in
+        ForEach(self.viewModel.paths.relevantPathsForPurchase(viewModel.purchaseInformation), id: \.id) { path in
             ManageSubscriptionButton(
                 path: path,
                 viewModel: self.viewModel
             )
         }
     }
+//
+//    private var relevantPathsForPurchase: [CustomerCenterConfigData.HelpPath] {
+//        viewModel.paths.relevantPathsForPurchase(purchaseInformation)
+//    }
 
+}
+
+private extension Array<CustomerCenterConfigData.HelpPath> {
+    func relevantPathsForPurchase(
+        _ purchaseInformation: PurchaseInformation?
+    ) -> [CustomerCenterConfigData.HelpPath] {
+        compactMap { $0.isEligibleForPurchase(purchaseInformation) }
+    }
 }
 
 @available(iOS 15.0, *)

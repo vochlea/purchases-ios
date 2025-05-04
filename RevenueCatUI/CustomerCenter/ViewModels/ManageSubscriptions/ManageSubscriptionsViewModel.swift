@@ -28,10 +28,6 @@ final class ManageSubscriptionsViewModel: ObservableObject {
 
     let screen: CustomerCenterConfigData.Screen
 
-    var relevantPathsForPurchase: [CustomerCenterConfigData.HelpPath] {
-        paths.relevantPathsForPurchase(purchaseInformation)
-    }
-
     @Published
     var showRestoreAlert: Bool = false
 
@@ -72,7 +68,7 @@ final class ManageSubscriptionsViewModel: ObservableObject {
 
     private var error: Error?
     private let loadPromotionalOfferUseCase: LoadPromotionalOfferUseCaseType
-    private let paths: [CustomerCenterConfigData.HelpPath]
+    let paths: [CustomerCenterConfigData.HelpPath]
     private(set) var purchasesProvider: CustomerCenterPurchasesType
 
     init(
@@ -258,68 +254,7 @@ private extension Array<CustomerCenterConfigData.HelpPath> {
     func relevantPathsForPurchase(
         _ purchaseInformation: PurchaseInformation?
     ) -> [CustomerCenterConfigData.HelpPath] {
-        guard let purchaseInformation else {
-            return self
-        }
-
-        return filter {
-            // if it's cancel, it cannot be a lifetime subscription
-            let isCancel = $0.type == .cancel
-            let isEligibleCancel = !purchaseInformation.isLifetime && !purchaseInformation.isCancelled
-
-            // if it's refundRequest, it cannot be free  nor within trial period
-            let isRefund = $0.type == .refundRequest
-            let isRefundEligible = purchaseInformation.price != .free
-                                    && !purchaseInformation.isTrial
-                                    && !purchaseInformation.isCancelled
-
-            // if it has a refundDuration, check it's still valid
-            let refundWindowIsValid = $0.refundWindowDuration?.isWithin(purchaseInformation) ?? true
-
-            return (!isCancel || isEligibleCancel) &&
-                    (!isRefund || isRefundEligible) &&
-                    refundWindowIsValid
-        }
-    }
-}
-
-private extension CustomerCenterConfigData.HelpPath.RefundWindowDuration {
-    func isWithin(_ purchaseInformation: PurchaseInformation) -> Bool {
-        switch self {
-        case .forever:
-            return true
-
-        case let .duration(duration):
-            return duration.isWithin(
-                from: purchaseInformation.latestPurchaseDate,
-                now: purchaseInformation.customerInfoRequestedDate
-            )
-
-        @unknown default:
-            return true
-        }
-    }
-}
-
-private extension ISODuration {
-    func isWithin(from startDate: Date?, now: Date) -> Bool {
-        guard let startDate else {
-            return true
-        }
-
-        var dateComponents = DateComponents()
-        dateComponents.year = self.years
-        dateComponents.month = self.months
-        dateComponents.weekOfYear = self.weeks
-        dateComponents.day = self.days
-        dateComponents.hour = self.hours
-        dateComponents.minute = self.minutes
-        dateComponents.second = self.seconds
-
-        let calendar = Calendar.current
-        let endDate = calendar.date(byAdding: dateComponents, to: startDate) ?? startDate
-
-        return startDate < endDate && now <= endDate
+        compactMap { $0.isEligibleForPurchase(purchaseInformation) }
     }
 }
 

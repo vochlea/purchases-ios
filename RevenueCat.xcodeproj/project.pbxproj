@@ -613,6 +613,7 @@
 		574BA2692D3E762E009B8EA6 /* PurchaseHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574BA2652D3E762E009B8EA6 /* PurchaseHistoryViewModel.swift */; };
 		574BA26A2D3E762E009B8EA6 /* PurchaseDetailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574BA2632D3E762E009B8EA6 /* PurchaseDetailItem.swift */; };
 		574BA26B2D3E762E009B8EA6 /* PurchaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574BA2662D3E762E009B8EA6 /* PurchaseInfo.swift */; };
+		574C51222DC7D2C200CBAFDC /* CustomerCenterConfigDataHelpPath+PurchaseInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574C51212DC7D2B800CBAFDC /* CustomerCenterConfigDataHelpPath+PurchaseInformation.swift */; };
 		574CBC842D944D7100B8B9FA /* CustomerCenterView+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574CBC822D944D7100B8B9FA /* CustomerCenterView+Actions.swift */; };
 		574CBC852D944D7100B8B9FA /* CustomerCenter+PreferenceKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574CBC812D944D7100B8B9FA /* CustomerCenter+PreferenceKeys.swift */; };
 		574D1C702D3E75F9005840CD /* PurchaseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574D1C6C2D3E75F9005840CD /* PurchaseDetailView.swift */; };
@@ -1981,6 +1982,7 @@
 		574BA2642D3E762E009B8EA6 /* PurchaseDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseDetailViewModel.swift; sourceTree = "<group>"; };
 		574BA2652D3E762E009B8EA6 /* PurchaseHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseHistoryViewModel.swift; sourceTree = "<group>"; };
 		574BA2662D3E762E009B8EA6 /* PurchaseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseInfo.swift; sourceTree = "<group>"; };
+		574C51212DC7D2B800CBAFDC /* CustomerCenterConfigDataHelpPath+PurchaseInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomerCenterConfigDataHelpPath+PurchaseInformation.swift"; sourceTree = "<group>"; };
 		574CBC812D944D7100B8B9FA /* CustomerCenter+PreferenceKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomerCenter+PreferenceKeys.swift"; sourceTree = "<group>"; };
 		574CBC822D944D7100B8B9FA /* CustomerCenterView+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomerCenterView+Actions.swift"; sourceTree = "<group>"; };
 		574D1C6C2D3E75F9005840CD /* PurchaseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseDetailView.swift; sourceTree = "<group>"; };
@@ -4043,6 +4045,7 @@
 		35D41B412D40354A000621C7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				574C51212DC7D2B800CBAFDC /* CustomerCenterConfigDataHelpPath+PurchaseInformation.swift */,
 				57B179D22DAE4C94009A5CFE /* CustomerInfo+ActiveTransaction.swift */,
 				57CD17262D9D830F00B4B667 /* CustomerCenterConfigDataSupport+URL.swift */,
 				35D41B422D403550000621C7 /* Store+Localization.swift */,
@@ -6988,6 +6991,7 @@
 				0354AA482D4029C300F9E330 /* TabsComponentView.swift in Sources */,
 				0354AA492D4029C300F9E330 /* TabControlButtonComponentView.swift in Sources */,
 				0354AA4A2D4029C300F9E330 /* TabsComponentViewModel.swift in Sources */,
+				574C51222DC7D2C200CBAFDC /* CustomerCenterConfigDataHelpPath+PurchaseInformation.swift in Sources */,
 				0354AA4B2D4029C300F9E330 /* TabControlToggleComponentViewModel.swift in Sources */,
 				0354AA4C2D4029C300F9E330 /* TabControlToggleComponentView.swift in Sources */,
 				0354AA4D2D4029C300F9E330 /* TabControlComponentView.swift in Sources */,
